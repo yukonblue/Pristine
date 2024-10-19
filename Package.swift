@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Pristine",
-    platforms: [.iOS(.v16), .macOS(.v14)],
+    platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(
             name: "Pristine",
@@ -13,15 +13,9 @@ let package = Package(
             targets: ["Pristine"]
         )
     ],
-    dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-perception.git", from: "1.3.5")
-    ],
     targets: [
         .target(
-            name: "Pristine",
-            dependencies: [
-                .product(name: "Perception", package: "swift-perception"),
-            ]
+            name: "Pristine"
         ),
         .testTarget(
             name: "PristineTests",

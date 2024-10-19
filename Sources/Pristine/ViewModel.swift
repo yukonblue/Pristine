@@ -6,29 +6,29 @@
 //
 
 import Foundation
-import Perception
+import Observation
 
-@Perceptible
+@Observable
 @MainActor
 public final class ViewModel<F: Feature> {
 
     // TODO: Look into making this internal at least
     public var state: F.State
 
-    @PerceptionIgnored
+    @ObservationIgnored
     private let feature: F
 
-    @PerceptionIgnored
+    @ObservationIgnored
     private let actionsStream: AsyncStream<F.Action>
-    @PerceptionIgnored
+    @ObservationIgnored
     private let actionsContinuation: AsyncStream<F.Action>.Continuation
 
-    @PerceptionIgnored
+    @ObservationIgnored
     public let signalsStream: AsyncStream<F.Signal>
-    @PerceptionIgnored
+    @ObservationIgnored
     private let signalsContinuation: AsyncStream<F.Signal>.Continuation
 
-    @PerceptionIgnored
+    @ObservationIgnored
     private let sink: SinkImpl
 
     public init(feature: F) {
